@@ -7,4 +7,4 @@ Feature: Account management
     Then My account page is displayed
     Examples:
       | Firstname | Lastname | Email              | Password    | Confirmpassword |
-      | Ken       | Ron      | kenron@testing.com | Naptime123_ | Naptime123_     |
+      | Ken       | Ron      | kenron001@testing.com | Naptime123_ | Naptime123_     |
