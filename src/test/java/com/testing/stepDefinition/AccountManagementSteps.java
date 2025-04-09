@@ -1,6 +1,7 @@
 package com.testing.stepDefinition;
 
 import com.testing.cucumber.Hooks;
+import com.testing.pageObject.AccountLoginPagePO;
 import com.testing.pageObject.CreateAccountPagePO;
 import com.testing.pageObject.HomePagePO;
 import io.cucumber.java.en.And;
@@ -18,13 +19,13 @@ public class AccountManagementSteps {
     }
 
     @When("I enter {string} {string} {string} {string} {string}")
-    public void iEnter(String Firstname, String Lastname, String Email, String Password, String Confirmpassword) {
+    public void iEnter(String Firstname, String Lastname, String Email, String Password, String ConfirmPassword) {
         CreateAccountPagePO createAccountPagePO = new CreateAccountPagePO(driver);
         createAccountPagePO.enterFirstName(Firstname);
         createAccountPagePO.enterLastName(Lastname);
         createAccountPagePO.enterEmail(Email);
         createAccountPagePO.enterPassword(Password);
-        createAccountPagePO.enterConfirmpassword(Confirmpassword);
+        createAccountPagePO.enterConfirmpassword(ConfirmPassword);
 
     }
 
@@ -44,16 +45,24 @@ public class AccountManagementSteps {
     public void anErrorMessageShouldBeDisplayedStatingAccountAlreadyExists() {
     }
 
-    @Given("I am on signin page")
-    public void iAmOnSigninPage() {
+    @Given("I am on signIn page")
+    public void iAmOnSignInPage() {
+        HomePagePO homePagePO = new HomePagePO(driver);
+        homePagePO.clickSignInLink();
     }
 
     @When("I enter {string} {string}")
-    public void iEnter(String arg0, String arg1) {
+    public void iEnter(String Email, String Password) {
+        AccountLoginPagePO accountLoginPagePO = new AccountLoginPagePO(driver);
+        accountLoginPagePO.enterEmail(Email);
+        accountLoginPagePO.enterPassword(Password);
     }
 
-    @And("I click on signin")
-    public void iClickOnSignin() {
+    @And("I click on signIn")
+    public void iClickOnSignIn() {
+        AccountLoginPagePO accountLoginPagePO = new AccountLoginPagePO(driver);
+        accountLoginPagePO.clickSignInButton();
+
     }
 
     @Then("My account page is displayed display")
