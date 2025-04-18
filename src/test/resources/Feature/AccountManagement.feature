@@ -31,7 +31,7 @@ Feature: Account management
     Then My account page is displayed display
     Examples:
       | Email                 | Password    |
-      | Kenron001@testing.com | Naptime123_ |
+      | kenron002@testing.com | Naptime123_ |
 
 
   @UnregisteredCustomer
