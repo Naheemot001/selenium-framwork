@@ -9,7 +9,7 @@ Feature: Account management
     Then My account page is displayed
     Examples:
       | Firstname | Lastname | Email                 | Password    | ConfirmPassword |
-      | Ken       | Ron      | kenron002@testing.com | Naptime123_ | Naptime123_     |
+      | Ken       | Ron      | kenron006@testing.com | Naptime123_ | Naptime123_     |
 
 
   @DuplicateAccount
@@ -20,7 +20,7 @@ Feature: Account management
     Then An error message should be displayed stating account already exists
     Examples:
       | Firstname | Lastname | Email                 | Password    | ConfirmPassword |
-      | ken       | Ron      | Kenron002@testing.com | Naptime123_ | Naptime123_     |
+      | ken       | Ron      | Kenron006@testing.com | Naptime123_ | Naptime123_     |
 
 
   @AccountLogin
@@ -31,7 +31,7 @@ Feature: Account management
     Then My account page is displayed display
     Examples:
       | Email                 | Password    |
-      | kenron002@testing.com | Naptime123_ |
+      | kenron005@testing.com | Naptime123_ |
 
 
   @UnregisteredCustomer
@@ -41,5 +41,29 @@ Feature: Account management
     And I click on signIn
     Then Error message should display
     Examples:
-      | Email                   | Password     |
+      | Email                   | Password      |
       | Samsmith123@testing.com | Moonnight333_ |
+
+
+  @LockAccount
+  Scenario Outline: Account to be locked after maximum of 5 attempts
+    Given I am on signIn page
+    When I enter "<Email>" "<Password>"
+    And I click on signIn
+    Then Error message should display stating account is locked
+    Examples:
+      | Email              | Password   |
+      | kenron001@testing.com | Naptime222 |
+
+
+
+
+
+
+
+
+
+
+
+
+

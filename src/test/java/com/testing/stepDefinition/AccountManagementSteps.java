@@ -87,6 +87,10 @@ public class AccountManagementSteps {
     }
 
 
-
-
+    @Then("Error message should display stating account is locked")
+    public void errorMessageShouldDisplayStatingAccountIsLocked() {
+        String ExpectedResult = "Customer Login";
+        String AcutualResult = driver.getTitle();
+        Assert.assertEquals(ExpectedResult, AcutualResult);
+    }
 }
